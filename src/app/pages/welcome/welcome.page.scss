@@ -1,0 +1,14 @@
+/* Make the toolbar background black */
+ion-header {
+    background-color: black;
+  }
+  
+  ion-toolbar {
+    --background: black; /* Set the background color of the toolbar to black */
+    --color: white; /* Set the text color to white for contrast */
+  }
+  
+  ion-title {
+    color: white; /* Set the title text color to white */
+  }
+  
