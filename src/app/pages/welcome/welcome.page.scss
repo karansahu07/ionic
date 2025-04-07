@@ -1,14 +1,54 @@
-/* Make the toolbar background black */
+
 ion-header {
     background-color: black;
   }
   
   ion-toolbar {
-    --background: black; /* Set the background color of the toolbar to black */
-    --color: white; /* Set the text color to white for contrast */
+    --background: black; 
+    --color: white; 
+    display: flex !important;
+    justify-content: space-between;
+
+    ion-title {
+      color: white; 
+      display: flex;
+      
+      .logo-img {
+        width: auto;
+        height: auto;
+      }      
+    }
+  }
+
+  .container.dark {
+    background-color: #1e1e22; /* Dark background */
+    padding: 30px 20px;
+    margin-top: -5px;
+    color: white;
+    text-align: center;
   }
   
-  ion-title {
-    color: white; /* Set the title text color to white */
+  .container.dark h1,
+  .container.dark h2 {
+    color: white;
+    margin: 10px 0;
   }
+  
+  .custom-btn {
+    --background: #2D75C7;     /* Blue background */
+    --color: white;            /* White text */
+    --box-shadow: none;
+    padding: 18px 30px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+
+  
+  
+
+  // ion-header ion-toolbar ion-title{
+  //   display: flex !important;
+  //   justify-content: space-between;
+  // }
   
