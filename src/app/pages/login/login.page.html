@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+  <ion-card class="login-card">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center login-title">
+        Login
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form>
+        <ion-item
+        lines="none"
+        class="custom-input"
+        [class.focused]="isFocused"
+        [class.filled]="email.length"
+      >
+        <label class="floating-label">Email</label>
+        <ion-input
+          [(ngModel)]="email"
+          (ionFocus)="isFocused = true"
+          (ionBlur)="isFocused = false"
+          type="email"
+          required
+        ></ion-input>
+      </ion-item>      
+
+
+        <div class="sign-button">
+          <ion-button color="dark" class="custom-btn">
+            Sign in
+          </ion-button>
+        </div>
+
+        <div class="ion-text-center ion-margin-top">
+          <a routerLink="/register">
+            <ion-text><strong>Create account</strong></ion-text>
+          </a>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+
+<app-footer></app-footer>

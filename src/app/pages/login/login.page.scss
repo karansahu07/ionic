@@ -1,0 +1,82 @@
+.login-card {
+    box-shadow: none;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .login-title {
+    font-weight: bolder;
+    font-size: 2rem;
+  }
+  
+  .custom-input {
+    position: relative;
+    border: 1px solid #848587;
+    margin: 16px auto;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.3s ease;
+    // padding-top: 16px;
+    height: 50px;
+  }
+  
+  .custom-input.focused {
+    border-color: #0a0a0a;
+  }
+  
+  .custom-input ion-input {
+    font-size: 16px;
+    width: 100%;
+    padding: 0 8px;
+    background: transparent;
+    z-index: 1;
+  }
+  
+  /* Floating label styling */
+  .floating-label {
+    position: absolute;
+    left: 10px;
+    top: 17px;
+    color: #848587;
+    font-size: 15px;
+    pointer-events: none;
+    transition: 0.2s ease all;
+    z-index: 0;
+  }
+  
+  .custom-input.focused .floating-label,
+  .custom-input.filled .floating-label {
+    top: 6px;
+    font-size: 11px;
+    color: #0a0a0a;
+  }
+  
+  
+  
+  
+  .sign-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+  }
+  
+  .custom-btn {
+    width: 130px;
+    height: 48px;
+    --border-radius: 0px;
+    font-size: 16px;
+  }
+  
+  ion-text {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  

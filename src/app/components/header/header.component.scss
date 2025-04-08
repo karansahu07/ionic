@@ -1,0 +1,20 @@
+ion-header {
+    background-color: black;
+  }
+  
+  ion-toolbar {
+    --background: black; 
+    --color: white; 
+    display: flex !important;
+    justify-content: space-between;
+
+    ion-title {
+      color: white; 
+      display: flex;
+      
+      .logo-img {
+        width: auto;
+        height: auto;
+      }      
+    }
+  }

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { WelcomePageRoutingModule } from './welcome-routing.module';
+// import { SharedModule } from '../../shared/shared.module';
 
 // import { WelcomePage } from './welcome.page';
 
@@ -13,10 +14,10 @@ import { WelcomePageRoutingModule } from './welcome-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    WelcomePageRoutingModule
+    WelcomePageRoutingModule,
   ],
   declarations: [],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   
 })
 export class WelcomePageModule {}

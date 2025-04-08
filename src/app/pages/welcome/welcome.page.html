@@ -1,107 +1,7 @@
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title></ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding" color="dark">
-
-    <!-- Accordion Menu Items -->
-    <ion-accordion-group>
-      <ion-accordion value="tv">
-        <ion-item slot="header" color="dark">
-          <ion-label>TV</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-item>BRAVIA</ion-item>
-          <ion-item>OLED</ion-item>
-          <ion-item>Accessories</ion-item>
-        </div>
-      </ion-accordion>
-
-      <ion-accordion value="home-cinema">
-        <ion-item slot="header" color="dark">
-          <ion-label>Home Cinema</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-item>Projectors</ion-item>
-          <ion-item>Soundbars</ion-item>
-        </div>
-      </ion-accordion>
-
-      <ion-accordion value="audio">
-        <ion-item slot="header" color="dark">
-          <ion-label>Audio</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-item>Headphones</ion-item>
-          <ion-item>Walkman</ion-item>
-        </div>
-      </ion-accordion>
-
-      <ion-accordion value="digital-imaging">
-        <ion-item slot="header" color="dark">
-          <ion-label>Digital Imaging</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-item>Alpha Cameras</ion-item>
-          <ion-item>Camcorders</ion-item>
-        </div>
-      </ion-accordion>
-
-      <ion-accordion value="car-audio">
-        <ion-item slot="header" color="dark">
-          <ion-label>Car Audio</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-item>Speakers</ion-item>
-          <ion-item>Stereos</ion-item>
-        </div>
-      </ion-accordion>
-
-      <ion-accordion value="gaming">
-        <ion-item slot="header" color="dark">
-          <ion-label>Gaming</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <ion-item>PlayStation</ion-item>
-          <ion-item>Accessories</ion-item>
-        </div>
-      </ion-accordion>
-    </ion-accordion-group>
-
-    <!-- Static Items -->
-    <ion-list>
-      <ion-item button>Rewards</ion-item>
-      <ion-item button>Exclusive Deals</ion-item>
-
-      <!-- Language Selector -->
-      <ion-item lines="none">
-        <ion-label>English</ion-label>
-        <ion-icon slot="end" name="chevron-down-outline"></ion-icon>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+<app-header></app-header>
 
 <div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 10px; width: 100%;">
   
-        <!-- Menu Button (Left) -->
-        <ion-menu-button></ion-menu-button>
-  
-     
-        <img src="assets/sony-world-logo-uae.png" alt="Sony World" style="height: 30px; object-fit: contain;" />
-  
-        <!-- Cart Icon (Right) -->
-        <ion-icon src="assets/icon/cart_white.svg" size="large"></ion-icon>
-  
-      </div>
-    </ion-toolbar>
-    <ion-searchbar placeholder="Search"></ion-searchbar>
-  </ion-header>
   
   <ion-content class="">
     <img alt="" src="assets/public/EN-740X740.webp" />
@@ -114,3 +14,5 @@
     
   </ion-content>
 </div>
+
+<app-footer></app-footer>
