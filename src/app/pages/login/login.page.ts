@@ -21,7 +21,22 @@ import { FormsModule } from '@angular/forms';
 export class LoginPage implements OnInit {
 
   email: string = '';
+  newEmail: string = '';
   isFocused: boolean = false;
+  isModalOpen: boolean = false;
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  createAccount() {
+    console.log('New account email:', this.newEmail);
+    this.closeModal();
+  }
 
   constructor() { }
 

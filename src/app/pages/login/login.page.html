@@ -11,21 +11,21 @@
     <ion-card-content>
       <form>
         <ion-item
-        lines="none"
-        class="custom-input"
-        [class.focused]="isFocused"
-        [class.filled]="email.length"
-      >
-        <label class="floating-label">Email</label>
-        <ion-input
-          [(ngModel)]="email"
-          (ionFocus)="isFocused = true"
-          (ionBlur)="isFocused = false"
-          type="email"
-          required
-        ></ion-input>
-      </ion-item>      
-
+          lines="none"
+          class="custom-input"
+          [class.focused]="isFocused"
+          [class.filled]="email.length"
+        >
+          <label class="floating-label">Email</label>
+          <ion-input
+            [(ngModel)]="email"
+            name="email"
+            (ionFocus)="isFocused = true"
+            (ionBlur)="isFocused = false"
+            type="email"
+            required
+          ></ion-input>
+        </ion-item>
 
         <div class="sign-button">
           <ion-button color="dark" class="custom-btn">
@@ -34,14 +34,54 @@
         </div>
 
         <div class="ion-text-center ion-margin-top">
-          <a routerLink="/register">
+          <a (click)="openModal()">
             <ion-text><strong>Create account</strong></ion-text>
           </a>
         </div>
       </form>
     </ion-card-content>
   </ion-card>
+
+  <!-- Create Account Modal -->
+  <ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()">
+    <ng-template>
+      <ion-content class="ion-padding modal-content">
+        <ion-card>
+          <ion-card-content>
+            <h2 class="ion-text-center">Create account</h2>
+
+            <ion-item
+          lines="none"
+          class="custom-input"
+          [class.focused]="isFocused"
+          [class.filled]="email.length"
+        >
+          <label class="floating-label">Email</label>
+          <ion-input
+            [(ngModel)]="email"
+            name="email"
+            (ionFocus)="isFocused = true"
+            (ionBlur)="isFocused = false"
+            type="email"
+            required
+          ></ion-input>
+        </ion-item>
+
+            <div class="button-group">
+              <ion-button expand="block" color="dark" (click)="closeModal()">
+                Cancel
+              </ion-button>
+              <ion-button expand="block" color="dark" (click)="createAccount()">
+                Create
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
+
 
 
 
