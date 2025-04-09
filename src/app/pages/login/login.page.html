@@ -28,7 +28,7 @@
         </ion-item>
 
         <div class="sign-button">
-          <ion-button color="dark" class="custom-btn">
+          <ion-button color="dark" class="custom-btn1">
             Sign in
           </ion-button>
         </div>
@@ -47,12 +47,12 @@
     <ng-template>
       <ion-content class="ion-padding modal-content">
         <ion-card>
-          <ion-card-content>
-            <h2 class="ion-text-center">Create account</h2>
+          <ion-card-content class="ion-card-content1">
+            <h2 class="ion-text-center" style="color: black;">Create account</h2>
 
             <ion-item
           lines="none"
-          class="custom-input"
+          class="custom-input-modal"
           [class.focused]="isFocused"
           [class.filled]="email.length"
         >
@@ -68,10 +68,10 @@
         </ion-item>
 
             <div class="button-group">
-              <ion-button expand="block" color="dark" (click)="closeModal()">
+              <ion-button class="cancel-btn" expand="block" color="dark" (click)="closeModal()">
                 Cancel
               </ion-button>
-              <ion-button expand="block" color="dark" (click)="createAccount()">
+              <ion-button class="create-btn" expand="block" color="dark" (click)="createAccount()">
                 Create
               </ion-button>
             </div>
@@ -80,6 +80,7 @@
       </ion-content>
     </ng-template>
   </ion-modal>
+
 </ion-content>
 
 

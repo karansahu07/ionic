@@ -12,7 +12,7 @@ import { LoginPage } from './login.page';
     FormsModule,
     IonicModule,
     LoginPageRoutingModule,
-    LoginPage // `
+    LoginPage 
   ]
 })
 export class LoginPageModule {}

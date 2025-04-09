@@ -1,0 +1,162 @@
+swiper-container {
+    width: 100%;
+    height: 100%;
+    --swiper-pagination-bullet-inactive-color: #888;
+    --swiper-pagination-color: #fff;
+  }
+  
+  swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .slider-card {
+    width: 94%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: hidden;
+  }
+  
+  
+  .blue-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+  }
+  
+  .yellow-text {
+    color: #FFD700;
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .products-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 200px; // Adjust based on your needs
+    margin: 20px 0;
+  }
+  
+  .badge-overlay {
+    position: absolute;
+    z-index: 2;
+    left: 30%;
+    top: 10px;
+  }
+  
+  .warranty-badge {
+    width: 100px; // Adjust based on your needs
+  }
+  
+  .products-image {
+    max-width: 100%;
+    max-height: 180px;
+  }
+
+  ion-card ion-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+  
+  
+  // Black section at bottom of all cards
+  .black-section {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    margin-top: -3px;
+  }
+  
+  .black-section h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .black-section p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .know-more {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .know-more ion-icon {
+    margin-left: 5px;
+  }
+  
+  // For other slides that use a regular image
+  ion-card img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+//   .swiper-pagination {
+//     position: absolute;
+//     bottom: 10px;
+//     right: 10px;
+//     color: white;
+//     z-index: 10;
+//     font-size: 14px;
+//   }
+  
+//   .swiper-button-next,
+//   .swiper-button-prev {
+//     color: white;
+//     position: absolute;
+//     top: 50%;
+//     width: 27px;
+//     height: 44px;
+//     margin-top: -22px;
+//     z-index: 10;
+//     cursor: pointer;
+//   }
+  
+//   .swiper-button-next {
+//     right: 10px;
+//   }
+  
+//   .swiper-button-prev {
+//     left: 10px;
+//   }
+  
+.swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #333;
+    z-index: 10;
+  }
+  
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #333;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .swiper-button-prev {
+    left: 10px;
+  }
+  
+  .swiper-button-next {
+    right: 10px;
+  }

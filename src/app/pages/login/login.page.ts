@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -38,7 +38,8 @@ export class LoginPage implements OnInit {
     this.closeModal();
   }
 
-  constructor() { }
+  constructor(private modalController: ModalController) {}
+
 
   ngOnInit() {
   }

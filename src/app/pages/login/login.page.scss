@@ -13,8 +13,8 @@
   .custom-input {
     position: relative;
     border: 1px solid #848587;
-    margin: 16px auto;
-    width: 300px;
+    margin: 16px 30px;
+    // width: 300px;
     display: flex;
     align-items: center;
     transition: border-color 0.3s ease;
@@ -62,7 +62,7 @@
     margin-top: 45px;
   }
   
-  .custom-btn {
+  .custom-btn1 {
     width: 130px;
     height: 48px;
     --border-radius: 0px;
@@ -88,7 +88,88 @@
   .button-group {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 3px;
+    margin-top: 45px;
   }
   
+//modal css
+
+  ::ng-deep ion-modal {
+    --background: transparent;
+    --box-shadow: none;
+  }
+  
+  .modal-content {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; // This is key to center it vertically
+  }
+  
+  ion-card {
+    margin-top: 200px;
+    margin-left: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+  
+  .ion-card-content1 {
+    padding: 24px;
+  }
+  
+  h2 {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .custom-input-modal {
+        margin-bottom: 60px;
+    margin-top: 50px;
+    border: 1px solid #ccc;
+    // border-radius: 6px;
+    padding: 4px 12px;
+    background: #fff;
+  }
+  
+  .custom-input-modal.focused {
+    border-color: #333;
+  }
+  
+  ion-input {
+    width: 100%;
+    padding: 8px 0;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    // gap: 12px;
+  }
+  
+  .cancel-btn {
+    flex: 1;
+    border-radius: 6px;
+    font-weight: 500;
+    --border-radius: 5px !important;
+    text-transform: none;
+    font-size: smaller;
+  }
+  .create-btn {
+    flex: 1;
+    border-radius: 6px;
+    font-weight: 500;
+    --border-radius: 5px !important;
+    text-transform: none;
+    font-size: smaller;
+  }
+  
+  .custom-input-modal.focused .floating-label,
+  .custom-input-modal.filled .floating-label {
+    top: 6px;
+    font-size: 11px;
+    color: #0a0a0a;
+  }
