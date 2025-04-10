@@ -1,6 +1,6 @@
 swiper-container {
     width: 100%;
-    height: 100%;
+    height: 70%;
     --swiper-pagination-bullet-inactive-color: #888;
     --swiper-pagination-color: #fff;
   }
@@ -11,7 +11,7 @@ swiper-container {
   }
   
   .slider-card {
-    width: 94%;
+    width: 98%;
     margin: 0;
     padding: 0;
     box-shadow: none;
@@ -131,32 +131,93 @@ swiper-container {
 //     left: 10px;
 //   }
   
-.swiper-pagination {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 14px;
-    color: #333;
-    z-index: 10;
-  }
+// .swiper-pagination {
+//     position: absolute;
+//     bottom: 10px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     font-size: 14px;
+//     color: #333;
+//     z-index: 10;
+//   }
   
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: #333;
-    font-size: 18px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    cursor: pointer;
-    user-select: none;
-  }
+//   .swiper-button-prev,
+//   .swiper-button-next {
+//     color: #333;
+//     font-size: 18px;
+//     position: absolute;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     z-index: 10;
+//     cursor: pointer;
+//     user-select: none;
+//   }
   
-  .swiper-button-prev {
-    left: 10px;
-  }
+//   .swiper-button-prev {
+//     left: 10px;
+//   }
   
-  .swiper-button-next {
-    right: 10px;
-  }
+//   .swiper-button-next {
+//     right: 10px;
+//   }
+
+// .navigation-container {
+//   position: absolute;
+//   bottom: 15px;
+//   left: 0;
+//   right: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   width: 100%;
+//   padding: 0 15px;
+//   pointer-events: none;
+//   z-index: 10;
+// }
+
+// .swiper-pagination {
+//   background-color: rgba(255, 255, 255, 0.7);
+//   padding: 4px 10px;
+//   border-radius: 15px;
+//   font-size: 14px;
+//   color: black;
+//   position: relative;
+//   display: inline-block;
+//   width: auto !important;
+//   margin: 0;
+//   pointer-events: auto;
+//   left: 0 !important;
+//   transform: none !important;
+// }
+
+// .swiper-button-prev,
+// .swiper-button-next {
+//   color: #333;
+//   background-color: rgba(255, 255, 255, 0.7);
+//   width: 30px !important;
+//   height: 30px !important;
+//   border-radius: 50%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin: 0;
+//   pointer-events: auto;
+//   top: auto !important;
+//   transform: none !important;
+// }
+
+// .swiper-button-prev:after,
+// .swiper-button-next:after {
+//   font-size: 14px;
+//   font-weight: bold;
+// }
+
+// .swiper-button-prev {
+//   position: relative;
+//   left: 0 !important;
+// }
+
+// .swiper-button-next {
+//   position: relative;
+//   right: 0 !important;
+// }
