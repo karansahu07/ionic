@@ -97,68 +97,13 @@ ion-content {
     right: 0 !important;
   }
 
+.view-all h6{
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 13px;
+  margin-top: 30px;
+}
 
-  .navigation-container1 {
-    position: absolute;
-    // bottom: 15px;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    width: 100%;
-    padding: 0 15px;
-    pointer-events: none;
-    z-index: 10;
-  }
-  
-  .swiper-pagination1 {
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 2px 14px;
-    border-radius: 15px;
-    font-size: 10px;
-    color: black;
-    position: relative;
-    display: inline-block;
-    width: auto !important;
-    margin: 0;
-    pointer-events: auto;
-    left: 0 !important;
-    transform: none !important;
-  }
-  
-  .button-prev1,
-  .button-next1 {
-    color: #333;
-    background-color: rgba(255, 255, 255, 0.7);
-    width: 30px !important;
-    height: 30px !important;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    pointer-events: auto;
-    top: auto !important;
-    transform: none !important;
-  }
-  
-  .button-prev1:after,
-  .button-next1:after {
-    font-size: 8px;
-    font-weight: bold;
-  }
-  
-  .button-prev1 {
-    position: relative;
-    left: 0 !important;
-    content: '‹';
-    color: #333;
-  }
-  
-  .button-next1 {
-    position: relative;
-    right: 0 !important;
-    content: '›';
-    color: #333;
-  }
+
+
