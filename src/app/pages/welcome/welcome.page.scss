@@ -1,6 +1,6 @@
-ion-content {
-  --padding-top: 115px; 
-}
+// ion-content {
+//   --padding-top: 115px; 
+// }
 
   .container.dark {
     background-color: #1e1e22; /* Dark background */
@@ -8,6 +8,11 @@ ion-content {
     margin-top: -5px;
     color: white;
     text-align: center;
+  }
+
+  .container1{
+    margin-left: 16px;
+    font-weight: bold !important;
   }
   
   .container.dark h1,
@@ -17,8 +22,8 @@ ion-content {
   }
   
   .custom-btn {
-    --background: #2D75C7;     /* Blue background */
-    --color: white;            /* White text */
+    --background: #2D75C7;     
+    --color: white;          
     --box-shadow: none;
     padding: 18px 30px;
     font-size: 16px;

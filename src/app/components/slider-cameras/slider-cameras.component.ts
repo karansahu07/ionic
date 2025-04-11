@@ -1,28 +1,32 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  AfterViewInit,
+  ElementRef,
+  ViewChild
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { register } from 'swiper/element/bundle';
 
-// Register Swiper custom elements
 register();
 
 @Component({
-  selector: 'app-slider',
+  selector: 'app-slider-cameras',
   standalone: true,
   imports: [CommonModule, IonicModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.scss']
+  templateUrl: './slider-cameras.component.html',
+  styleUrls: ['./slider-cameras.component.scss']
 })
-export class SliderComponent implements AfterViewInit {
-  @ViewChild('swiper')
-  swiperRef!: ElementRef;
+export class SliderCamerasComponent implements AfterViewInit {
+  @ViewChild('swiper') swiperRef!: ElementRef;
 
   ngAfterViewInit() {
-    const wrapper = document.getElementById('pagination1'); 
+    const wrapper = document.getElementById('pagination6'); // Scoped to #pagination2
 
     const swiperParams = {
-      slidesPerView: 1.09,
+      slidesPerView: 1.1,
       centeredSlides: true,
       loop: false,
       pagination: {
@@ -36,16 +40,15 @@ export class SliderComponent implements AfterViewInit {
       }
     };
 
-    // Initialize Swiper with config
     Object.assign(this.swiperRef.nativeElement, swiperParams);
     this.swiperRef.nativeElement.initialize();
 
     const swiper = this.swiperRef.nativeElement.swiper;
 
-    // Update navigation button state
+    // Update buttons initially
     this.updateNavigationButtons(swiper, wrapper);
 
-    // Listen for changes
+    // Update on slide change
     swiper.on('slideChange', () => {
       this.updateNavigationButtons(swiper, wrapper);
     });

@@ -3,23 +3,22 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { register } from 'swiper/element/bundle';
 
-// Register Swiper custom elements
 register();
 
 @Component({
-  selector: 'app-slider',
+  selector: 'app-slider-more-from-sony',
   standalone: true,
   imports: [CommonModule, IonicModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.scss']
+  templateUrl: './slider-more-from-sony.component.html',
+  styleUrls: ['./slider-more-from-sony.component.scss']
 })
-export class SliderComponent implements AfterViewInit {
+export class SliderMoreFromSonyComponent implements AfterViewInit {
   @ViewChild('swiper')
   swiperRef!: ElementRef;
 
   ngAfterViewInit() {
-    const wrapper = document.getElementById('pagination1'); 
+    const wrapper = document.getElementById('pagination7'); 
 
     const swiperParams = {
       slidesPerView: 1.09,
