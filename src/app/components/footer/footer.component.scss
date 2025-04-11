@@ -1,0 +1,40 @@
+.custom-footer {
+    background-color: #1c1c1e; 
+    color: #ffffff;
+    padding: 20px 0;
+    font-family: sans-serif;
+  }
+  
+  .footer-toolbar {
+    --background: transparent;
+  }
+  
+  .footer-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-links a {
+    color: #dcdcdc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .footer-links a:hover {
+    color: #ffffff;
+  }
+  
