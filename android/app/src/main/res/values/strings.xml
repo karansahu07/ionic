@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Sony World</string>
+    <string name="title_activity_main">Sony World</string>
+    <string name="package_name">com.sonyworldshopify.com</string>
+    <string name="custom_url_scheme">com.sonyworldshopify.com</string>
+</resources>
