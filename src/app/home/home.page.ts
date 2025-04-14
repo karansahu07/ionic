@@ -15,6 +15,7 @@ import { SliderSpeakersComponent } from '../components/slider-speakers/slider-sp
 import { SliderCamerasComponent } from '../components/slider-cameras/slider-cameras.component';
 import { SliderMoreFromSonyComponent } from '../components/slider-more-from-sony/slider-more-from-sony.component';
 import { RouterModule } from '@angular/router';
+import { ApiService } from '../services/api.service';
 
 
 
@@ -38,12 +39,20 @@ import { RouterModule } from '@angular/router';
     SliderMoreFromSonyComponent,
   ]
 })
-export class HomePage implements OnInit {
+export class HomePage {
+  products: any[] = [];
 
-  constructor() {}
+  constructor(private apiService: ApiService) {}
 
-  ngOnInit(): void {
-    
+  loadProducts() {
+    this.apiService.getProducts().subscribe(
+      (data) => {
+        this.products = data;
+        console.log('Shopify products:', data);
+      },
+      (error) => {
+        console.error('Error fetching products:', error);
+      }
+    );
   }
-
 }

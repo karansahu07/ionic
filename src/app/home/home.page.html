@@ -1,12 +1,8 @@
 <ion-menu side="start" menuId="main-menu" contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title></ion-title>
-    </ion-toolbar>
-  </ion-header>
+ 
   <ion-content class="ion-padding" color="dark">
 
-    <!-- Accordion Menu Items -->
+    
     <ion-accordion-group>
       <ion-accordion value="tv">
         <ion-item slot="header" color="dark">
@@ -70,12 +66,12 @@
       </ion-accordion>
     </ion-accordion-group>
 
-    <!-- Static Items -->
+  
     <ion-list>
       <ion-item button>Rewards</ion-item>
       <ion-item button>Exclusive Deals</ion-item>
 
-      <!-- Language Selector -->
+     
       <ion-item lines="none">
         <ion-label>English</ion-label>
         <ion-icon slot="end" name="chevron-down-outline"></ion-icon>
@@ -213,6 +209,17 @@
     </div>
 
     <app-footer></app-footer>
+
+    <ion-button expand="full" (click)="loadProducts()">Load Products</ion-button>
+
+<!-- Show products when available -->
+<ion-list *ngIf="products.length > 0">
+  <ion-item *ngFor="let product of products">
+    <ion-label>
+      <h2>{{ product.title }}</h2>
+    </ion-label>
+  </ion-item>
+</ion-list>
    
   </ion-content>
 </div>
@@ -222,3 +229,25 @@
 
 
  
+
+
+  <!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>Shopify Products</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list *ngIf="products.length">
+      <ion-item *ngFor="let product of products">
+        <ion-label>
+          <h2>{{ product.title }}</h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  
+    <ion-text color="medium" *ngIf="!products.length">
+      <p>Loading products...</p>
+    </ion-text>
+  </ion-content> -->
+  
