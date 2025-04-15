@@ -22,6 +22,46 @@ register();
 export class SliderSoundbarComponent implements AfterViewInit {
   @ViewChild('swiper') swiperRef!: ElementRef;
 
+  soundbars = [
+    {
+      type: 'product',
+      image: 'assets/public/A9000_Main.webp',
+      title: 'Sony | BRAVIA Theatre Bar 9 | Flagship Single Soundbar | 360 Spatial Sound Mapping Dolby Atmos®/DTS:X® I HT-A9000',
+      comparePrice: 'AED 5,999',
+      salePrice: 'AED 3,999',
+      rewardsNote: 'Earn 154 Rewards Points',
+      showTabby: true
+    },
+    {
+      type: 'product',
+      image: 'assets/public/A8000_Main-Large.webp',
+      title: 'Sony BRAVIA Theatre Bar 8 | Single Soundbar | 360 Spatial Sound Mapping | Dolby Atmos®/DTS:X® I HT-A8000',
+      comparePrice: 'AED 4,999',
+      salePrice: 'AED 2,799',
+      rewardsNote: 'Earn 166 Rewards Points',
+      showTabby: true
+    },
+    {
+      type: 'product',
+      image: 'assets/public/14_AE_set-Large.webp',
+      title: 'HT-A3000 | 3.1ch Dolby Atmos® Soundbar',
+      comparePrice: 'AED 3,999',
+      salePrice: 'AED 2,999',
+      rewardsNote: 'Earn 142 Rewards Points',
+      showWarranty: true
+    },
+    {
+      type: 'product',
+      image: 'assets/public/HT-S2000_main-Large.webp',
+      title: 'HT-S2000 | 3.1ch Dolby Atmos® Soundbar',
+      comparePrice: 'AED 1,599',
+      salePrice: 'AED 999',
+      rewardsNote: 'Earn 47 Rewards Points',
+      showTabby: true
+    }
+  ];
+  
+
   ngAfterViewInit() {
     const wrapper = document.getElementById('pagination3');
 

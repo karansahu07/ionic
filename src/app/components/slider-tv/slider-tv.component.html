@@ -1,68 +1,46 @@
-<swiper-container #swiper class="my-swiper" init="false">
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/brevia_8.webp" alt="Rewards"></ion-img>
-      <div class="black-section">
-        <h3>1 Year Free Extended Warranty</h3>
-        <p>Get Extended Warranty </p>
-        <p>On Select Products </p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
-      </div>
-    </ion-card>
+<swiper-container #swiper init="false">
+  <swiper-slide *ngFor="let slide of slides">
+    <ng-container *ngIf="slide.data as data">
+      <ion-card class="slider-card">
+        <ion-img [src]="data.image" alt="Product Image"></ion-img>
+
+        <!-- BLACK SECTION (common for all) -->
+        <div class="black-section">
+          <h3 class="product-title">{{ data.title }}</h3>
+          <div class="price_container">
+            <span class="compare_price">{{ data.comparePrice }}</span>
+            <span class="sale_price">{{ data.salePrice }}</span>
+          </div>
+          <p>{{ data.discountNote }}</p>
+          <p>{{ data.rewardsNote }}</p>
+        </div>
+
+        <!-- PRODUCT: Add to cart button inside black-section -->
+        <div *ngIf="slide.type === 'product'" class="button-wrapper">
+          <ion-button class="shop-now" expand="full" fill="solid">
+            Add to cart
+          </ion-button>
+        </div>
+
+        <!-- PROMO: Signup form outside black-section -->
+        <div *ngIf="slide.type === 'promo'" class="container-subscribe">
+          <p class="heading-para">Tell Me When Available!</p>
+          <ionic-newsletter-signup class="hydrated">
+            <form>
+              <input
+                aria-labelledby="9yard1onl65"
+                name="email"
+                type="email"
+                placeholder="Email address"
+                required
+              />
+              <ionic-button class="hydrated">
+                <button class="default" type="submit">Sign up</button>
+              </ionic-button>
+            </form>
+          </ionic-newsletter-signup>
+        </div>
+      </ion-card>
+    </ng-container>
   </swiper-slide>
-
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/BRAVIA_8_-65.webp" alt="Rewards"></ion-img>
-      <div class="black-section">
-        <h3>Sony Rewards</h3>
-        <p>Earn Sony Rewards on</p>
-        <p>Every Purchase</p>
-        <!-- <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button> -->
-
-      </div>
-
-      <div class="container-subscribe">
-        <p class="heading-para">Tell Me When Available!</p>
-        <ionic-newsletter-signup class="hydrated">
-          <form class=""><input
-              aria-labelledby="9yard1onl65" name="email" type="email" placeholder="Email address"
-              required=""><ionic-button class="hydrated"><!----><button class="default"
-                type="submit">Sign up</button></ionic-button></form>
-        </ionic-newsletter-signup>
-      </div>
-
-    </ion-card>
-  </swiper-slide>
-
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/brevia_8_55.webp" alt="Lens Cleaning"></ion-img>
-      <div class="black-section">
-        <h3>Camera Sensor Cleaning</h3>
-        <p>Book a sensor cleaning</p>
-        <p>with us today.</p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
-      </div>
-    </ion-card>
-  </swiper-slide>
-
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/brevia_3_85.webp" alt="Lens Cleaning"></ion-img>
-      <div class="black-section">
-        <h3>Camera Sensor Cleaning</h3>
-        <p>Book a sensor cleaning</p>
-        <p>with us today.</p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
-      </div>
-    </ion-card>
-  </swiper-slide>
-
 </swiper-container>
-
-<!-- <div class="navigation-container1">
-  <div class="button-prev"></div>
-  <div class="swiper-pagination"></div>
-  <div class="button-next"></div>
-</div> -->

@@ -64,19 +64,41 @@
   // }
 
   @font-face {
+    font-family: 'SST-regular';
+    src: url('assets/fonts/SSTRg.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
     font-family: 'SST-light';
-    src: url('assets/fonts/SST-Light.ttf') format('truetype');
-    font-weight: normal;
+    src: url('assets/fonts/SSTLight.ttf') format('truetype');
+    font-weight: 300;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'SST-medium';
-    src: url('assets/fonts/SST-Medium.ttf') format('truetype');
-    font-weight: bold;
+    src: url('assets/fonts/SSTMedium.ttf') format('truetype');
+    font-weight: 500;
     font-style: normal;
   }
 
-*{
-  font-family: 'SST-medium', sans-serif;
+// *{
+//   font-family: 'SST-light';
+// }
+
+* {
+  font-family: 'SST', sans-serif;
+}
+
+h1, h2, h3,h4, .btn {
+  font-weight: 700; // Medium
+}
+
+p, span, li {
+  font-weight: 400; // Regular
+}
+
+.small, .label, .caption {
+  font-weight: 300; // Light
 }

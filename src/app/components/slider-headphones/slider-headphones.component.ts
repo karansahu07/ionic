@@ -11,6 +11,17 @@ import { register } from 'swiper/element/bundle';
 
 register();
 
+interface Product {
+  title: string;
+  comparePrice: string;
+  salePrice: string;
+  rewardsPoints: number;
+  hasOptions: boolean;
+  showTabby: boolean;
+  selectedColor: string;
+  colorImages: { [key: string]: string };
+}
+
 @Component({
   selector: 'app-slider-headphones',
   standalone: true,
@@ -21,6 +32,65 @@ register();
 })
 export class SliderHeadphonesComponent implements AfterViewInit {
   @ViewChild('swiper') swiperRef!: ElementRef;
+
+  headphones: Product[] = [
+    {
+      title: 'Sony LinkBuds series | LinkBuds Fit Wireless Noise Canceling Earbuds',
+      comparePrice: 'AED 899',
+      salePrice: 'AED 799',
+      rewardsPoints: 38,
+      hasOptions: false,
+      showTabby: true,
+      selectedColor: 'black',
+      colorImages: {
+        black: 'assets/public/headphone1.webp',
+      }
+    },
+    {
+      title: 'Sony LinkBuds series | LinkBuds Fit Wireless Noise Canceling Earbuds',
+      comparePrice: 'AED 899',
+      salePrice: 'AED 799',
+      rewardsPoints: 38,
+      hasOptions: true,
+      showTabby: true,
+      selectedColor: 'black',
+      colorImages: {
+        black: 'assets/public/headphone2.webp',
+        white: 'assets/public/white-headphone.webp',
+        green: 'assets/public/green-headphone.webp'
+      }
+    },
+    {
+      title: 'Sony LinkBuds series | LinkBuds Fit Wireless Noise Canceling Earbuds',
+      comparePrice: 'AED 899',
+      salePrice: 'AED 799',
+      rewardsPoints: 38,
+      hasOptions: true,
+      showTabby: true,
+      selectedColor: 'black',
+      colorImages: {
+        black: 'assets/public/headphone3.webp',
+        white: 'assets/public/white-headphone.webp',
+        green: 'assets/public/green-headphone.webp'
+      }
+    },
+    {
+      title: 'Sony LinkBuds Fit x Olivia Rodrigo Wireless Noise Canceling Earbuds',
+      comparePrice: 'AED 899',
+      salePrice: 'AED 799',
+      rewardsPoints: 38,
+      hasOptions: false,
+      showTabby: true,
+      selectedColor: 'purple',
+      colorImages: {
+        purple: 'assets/public/headphone4.webp'
+      }
+    }
+  ];
+
+  getColorKeys(product: Product): string[] {
+    return Object.keys(product.colorImages);
+  }
 
   ngAfterViewInit() {
     const wrapper = document.getElementById('pagination4');
@@ -45,10 +115,8 @@ export class SliderHeadphonesComponent implements AfterViewInit {
 
     const swiper = this.swiperRef.nativeElement.swiper;
 
-    // Update buttons initially
     this.updateNavigationButtons(swiper, wrapper);
 
-    // Update on slide change
     swiper.on('slideChange', () => {
       this.updateNavigationButtons(swiper, wrapper);
     });

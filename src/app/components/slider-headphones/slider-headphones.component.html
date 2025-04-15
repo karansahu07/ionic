@@ -1,51 +1,54 @@
 <swiper-container #swiper class="my-swiper" init="false">
-  <swiper-slide>
+  <swiper-slide *ngFor="let product of headphones">
     <ion-card class="slider-card">
-      <ion-img src="assets/public/headphone1.webp" alt="Rewards"></ion-img>
-      <div class="black-section">
-        <h3>1 Year Free Extended Warranty</h3>
-        <p>Get Extended Warranty </p>
-        <p>On Select Products </p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
-      </div>
-    </ion-card>
-  </swiper-slide>
-  
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/headphone2.webp" alt="Rewards"></ion-img>
-      <div class="black-section">
-        <h3>Sony Rewards</h3>
-        <p>Earn Sony Rewards on</p>
-        <p>Every Purchase</p>
-        <ion-button class="shop-now" expand="full" fill="solid">Select Options</ion-button>
-      </div>
-    </ion-card>
-  </swiper-slide>
-  
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/headphone3.webp" alt="Lens Cleaning"></ion-img>
-      <div class="black-section">
-        <h3>Camera Sensor Cleaning</h3>
-        <p>Book a sensor cleaning</p>
-        <p>with us today.</p>
-        <ion-button class="shop-now" expand="full" fill="solid">Select Options</ion-button>
-      </div>
-    </ion-card>
-  </swiper-slide>
-  
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/headphone4.webp" alt="Lens Cleaning"></ion-img>
-      <div class="black-section">
-        <h3>Camera Sensor Cleaning</h3>
-        <p>Book a sensor cleaning</p>
-        <p>with us today.</p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
-      </div>
-    </ion-card>
-  </swiper-slide>
-  
-</swiper-container>
+      <ion-img
+        [src]="product.colorImages[product.selectedColor]"
+        alt="Product Image"
+      ></ion-img>
 
+      <div class="black-section">
+        <h3 class="product-title">{{ product.title }}</h3>
+
+        <div class="price_container">
+          <span class="compare_price"><s>{{ product.comparePrice }}</s></span>
+          <span class="sale_price">{{ product.salePrice }}</span>
+        </div>
+
+        <p>Earn <span class="reward">{{ product.rewardsPoints }}</span> Reward Points</p>
+
+        <!-- Tabby -->
+        <div *ngIf="product.showTabby" class="tabby-payment">
+          Split in 4 payments with
+          <span class="tabby-badge">
+            <ion-img
+              src="assets/public/tabby.svg"
+              alt="Tabby logo"
+              class="tabby-img"
+            />
+          </span>
+        </div>
+
+        <!-- Color selection -->
+        <div *ngIf="product.hasOptions" class="color-selection">
+          <p>Color</p>
+          <div class="color-images">
+            <img
+              *ngFor="let color of getColorKeys(product)"
+              [src]="product.colorImages[color]"
+              [alt]="color"
+              class="color-thumbnail"
+              [class.active]="product.selectedColor === color"
+              (click)="product.selectedColor = color"
+            />
+          </div>
+        </div>
+
+        <div class="button-wrapper">
+          <ion-button class="shop-now" expand="full" fill="solid">
+            {{ product.hasOptions ? 'Select Options' : 'Add to cart' }}
+          </ion-button>
+        </div>
+      </div>
+    </ion-card>
+  </swiper-slide>
+</swiper-container>

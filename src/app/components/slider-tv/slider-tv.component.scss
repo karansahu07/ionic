@@ -77,7 +77,7 @@ swiper-container {
   
   .black-section h3 {
     margin: 0;
-    font-size: 18px;
+    font-size: 13px;
     font-weight: bold;
   }
   
@@ -110,6 +110,9 @@ swiper-container {
     --color: #ffffff;
     --border-radius: 6px;
   }
+  .button-wrapper {
+    padding: 30px 15px;
+}
 
   .container-subscribe {
     background-color: #dc3a1a;
@@ -161,3 +164,15 @@ swiper-container {
     background-color: #246ab3;
   }
   
+  .price_container {
+    margin: 10px 0px;
+}
+span.compare_price {
+  font-size: 12px;
+  color: gray;
+  text-decoration: line-through;
+}
+span.sale_price {
+  font-size: 15px;
+  padding-left: 10px;
+}

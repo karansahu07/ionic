@@ -11,10 +11,12 @@
 }
 
 .container1{
-  margin-left: 16px;
+  padding-left: 20px;
   font-weight: bold !important;
+  margin-top: 21px !important;
+  margin-bottom: 30px !important;
 }
-
+ 
 .container.dark h1,
 .container.dark h2 {
   color: white;
@@ -31,7 +33,7 @@
 // }
 
 .custom-btn {
-  --background: #2f80ed;
+  --background: #2D75C7;
   --color: #fff;
   --border-radius: 0px;
   --padding-top: 15px;
@@ -46,10 +48,14 @@
   margin-top: 15px;
 }
 
+// .container-heading{
+//   font-weight: 700 !important;
+// }
+
 
 
 .navigation-container {
-  position: absolute;
+  // position: absolute;
   // bottom: 15px;
   left: 0;
   right: 0;
@@ -59,7 +65,8 @@
   width: 100%;
   padding: 0 15px;
   pointer-events: none;
-  z-index: 10;
+  margin-top: 20px;
+  // z-index: 10;
 }
 
 .swiper-pagination {

@@ -21,6 +21,7 @@ register();
 })
 export class SliderSpeakersComponent implements AfterViewInit {
   @ViewChild('swiper') swiperRef!: ElementRef;
+  
 
   ngAfterViewInit() {
     const wrapper = document.getElementById('pagination5'); // Scoped to #pagination2

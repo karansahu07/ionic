@@ -1,50 +1,37 @@
 <swiper-container #swiper class="my-swiper" init="false">
-  <swiper-slide>
+  <swiper-slide *ngFor="let slide of soundbars; let i = index">
     <ion-card class="slider-card">
-      <ion-img src="assets/public/A9000_Main.webp" alt="Rewards"></ion-img>
+      <ion-img [src]="slide.image" alt="Soundbar Image"></ion-img>
+
       <div class="black-section">
-        <h3>1 Year Free Extended Warranty</h3>
-        <p>Get Extended Warranty </p>
-        <p>On Select Products </p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
+        <h3 class="product-title">{{ slide.title }}</h3>
+        <div class="price_container">
+          <span class="compare_price">{{ slide.comparePrice }}</span>
+          <span class="sale_price">{{ slide.salePrice }}</span>
+        </div>
+
+        <p>{{ slide.rewardsNote }}</p>
+
+        <!-- Conditional Line -->
+        <ng-container *ngIf="slide.showTabby">
+          <div class="tabby-payment">
+            Split in 4 payments with 
+            <span class="tabby-badge">
+              <ion-img src="assets/public/tabby.svg" alt="Tabby logo" class="tabby-img"></ion-img>
+            </span>
+          </div>
+        </ng-container>
+        
+        <ng-container *ngIf="slide.showWarranty">
+          <p class="warranty-line">1 Year Free Extended Warranty</p>
+        </ng-container>
+
+        <div *ngIf="slide.type === 'product'" class="button-wrapper">
+          <ion-button class="shop-now" expand="full" fill="solid">
+            Add to cart
+          </ion-button>
+        </div>
       </div>
     </ion-card>
   </swiper-slide>
-  
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/A8000_Main-Large.webp" alt="Rewards"></ion-img>
-      <div class="black-section">
-        <h3>Sony Rewards</h3>
-        <p>Earn Sony Rewards on</p>
-        <p>Every Purchase</p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
-      </div>
-    </ion-card>
-  </swiper-slide>
-  
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/14_AE_set-Large.webp" alt="Lens Cleaning"></ion-img>
-      <div class="black-section">
-        <h3>Camera Sensor Cleaning</h3>
-        <p>Book a sensor cleaning</p>
-        <p>with us today.</p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
-      </div>
-    </ion-card>
-  </swiper-slide>
-  
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/HT-S2000_main-Large.webp" alt="Lens Cleaning"></ion-img>
-      <div class="black-section">
-        <h3>Camera Sensor Cleaning</h3>
-        <p>Book a sensor cleaning</p>
-        <p>with us today.</p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
-      </div>
-    </ion-card>
-  </swiper-slide>
-  
 </swiper-container>

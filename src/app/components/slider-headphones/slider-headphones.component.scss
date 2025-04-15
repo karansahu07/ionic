@@ -110,3 +110,42 @@ swiper-container {
     --color: #ffffff;
     --border-radius: 6px;
   }
+  ion-img.tabby-img.md.hydrated {
+    width: 40px;
+    padding-left: 5px;
+  }
+  .tabby-payment{
+    display:flex;
+  }
+  .price_container {
+    margin: 10px 0px;
+  }
+  span.compare_price {
+  font-size: 12px;
+  color: gray;
+  text-decoration: line-through;
+  }
+  span.sale_price {
+  font-size: 15px;
+  padding-left: 10px;
+  }
+
+  .color-images {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+  }
+  
+  ion-card .color-thumbnail {
+    width: 50px;
+    // height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+    border: 1px solid black;
+    transition: border-color 0.3s ease;
+  }
+  
+  .color-thumbnail.active {
+    border-color: #ff3c00;
+  }

@@ -22,6 +22,55 @@ register();
 export class SliderTvComponent implements AfterViewInit {
   @ViewChild('swiper') swiperRef!: ElementRef;
 
+  slides = [
+    {
+      type: 'product',
+      data: {
+        image: 'assets/public/brevia_8.webp',
+        title: 'Sony | BRAVIA 8 | 77 Inch | XR-OLED | Exclusive features for PS5 gaming | 2024 Model',
+        comparePrice: 'AED 16,499',
+        salePrice: 'AED 12,499',
+        discountNote: 'Get additional 10% discount at checkout',
+        rewardsNote: 'Earn 595 Rewards Points'
+      }
+    },
+    {
+      type: 'promo',
+      data: {
+        image: 'assets/public/BRAVIA_8_-65.webp',  
+        title: 'Sony | BRAVIA 8 | 77 Inch | XR-OLED | Exclusive features for PS5 gaming | 2024 Model',
+        comparePrice: 'AED 16,499',
+        salePrice: 'AED 12,499',
+        discountNote: 'Get additional 10% discount at checkout',
+        rewardsNote: 'Earn 595 Rewards Points'
+      }
+    },
+    {
+      type: 'product',
+      data: {
+        image: 'assets/public/brevia_8_55.webp',
+        title: 'Sony | BRAVIA 8 | 77 Inch | XR-OLED | Exclusive features for PS5 gaming | 2024 Model',
+        comparePrice: 'AED 16,499',
+        salePrice: 'AED 12,499',
+        discountNote: 'Get additional 10% discount at checkout',
+        rewardsNote: 'Earn 595 Rewards Points'
+      }
+    },
+    {
+      type: 'product',
+      data: {
+        image: 'assets/public/brevia_3_85.webp',
+        title: 'Sony | BRAVIA 8 | 77 Inch | XR-OLED | Exclusive features for PS5 gaming | 2024 Model',
+        comparePrice: 'AED 16,499',
+        salePrice: 'AED 12,499',
+        discountNote: 'Get additional 10% discount at checkout',
+        rewardsNote: 'Earn 595 Rewards Points'
+      }
+    }
+  ];
+  
+  
+
   ngAfterViewInit() {
     const wrapper = document.getElementById('pagination2'); // Scoped to #pagination2
 
