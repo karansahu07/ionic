@@ -1,23 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, AlertController } from '@ionic/angular';
 import { HeaderComponent } from '../components/header/header.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { SliderComponent } from '../components/slider/slider.component';
 import { SliderTvComponent } from '../components/slider-tv/slider-tv.component';
-
-import { register } from 'swiper/element/bundle';
-
-register();
 import { SliderSoundbarComponent } from '../components/slider-soundbar/slider-soundbar.component';
 import { SliderHeadphonesComponent } from '../components/slider-headphones/slider-headphones.component';
 import { SliderSpeakersComponent } from '../components/slider-speakers/slider-speakers.component';
 import { SliderCamerasComponent } from '../components/slider-cameras/slider-cameras.component';
 import { SliderMoreFromSonyComponent } from '../components/slider-more-from-sony/slider-more-from-sony.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms'; // needed for ngModel
 import { ApiService } from '../services/api.service';
 
-
+import { register } from 'swiper/element/bundle';
+register();
 
 @Component({
   selector: 'app-home',
@@ -26,6 +24,7 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./home.page.scss'],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule,
     IonicModule,
     HeaderComponent,
@@ -39,10 +38,24 @@ import { ApiService } from '../services/api.service';
     SliderMoreFromSonyComponent,
   ]
 })
-export class HomePage {
+export class HomePage implements OnInit {
   products: any[] = [];
+  showForm = false;
+  isEdit = false;
+  editIndex: number | null = null;
 
-  constructor(private apiService: ApiService) {}
+  product = {
+    title: '',
+    body_html: '',
+    price: '',
+    sku: ''
+  };
+
+  constructor(private apiService: ApiService, private alertCtrl: AlertController) {}
+
+  ngOnInit() {
+    this.loadProducts();
+  }
 
   loadProducts() {
     this.apiService.getProducts().subscribe(
@@ -54,5 +67,102 @@ export class HomePage {
         console.error('Error fetching products:', error);
       }
     );
+  }
+
+  toggleForm() {
+    this.showForm = !this.showForm;
+
+    if (!this.showForm) {
+      this.resetForm();
+    }
+  }
+
+  editProduct(product: any, index: number) {
+    this.product = {
+      title: product.title,
+      body_html: product.body_html || '',
+      price: product.variants?.[0]?.price || '',
+      sku: product.variants?.[0]?.sku || ''
+    };
+    this.editIndex = index;
+    this.isEdit = true;
+    this.showForm = true;
+  }
+
+  async submitProduct() {
+    const productPayload = {
+      title: this.product.title,
+      body_html: this.product.body_html,
+      vendor: 'MyIonicApp',
+      product_type: 'Mobile',
+      variants: [
+        {
+          option1: 'Default',
+          price: this.product.price,
+          sku: this.product.sku
+        }
+      ]
+    };
+  
+    if (this.isEdit && this.editIndex !== null) {
+      const productId = this.products[this.editIndex].id;
+  
+      this.apiService.updateProduct(productId, productPayload).subscribe({
+        next: async (res) => {
+          const alert = await this.alertCtrl.create({
+            header: 'Updated',
+            message: 'Product updated successfully!',
+            buttons: ['OK']
+          });
+          await alert.present();
+          this.loadProducts();
+          this.resetForm();
+          this.showForm = false;
+        },
+        error: async (err) => {
+          const alert = await this.alertCtrl.create({
+            header: 'Error',
+            message: err.error?.error || 'Failed to update product',
+            buttons: ['OK']
+          });
+          await alert.present();
+        }
+      });
+    } else {
+      this.apiService.addProduct(productPayload).subscribe({
+        next: async (res) => {
+          const alert = await this.alertCtrl.create({
+            header: 'Success',
+            message: 'Product added successfully!',
+            buttons: ['OK']
+          });
+          await alert.present();
+          this.loadProducts();
+          this.resetForm();
+          this.showForm = false;
+        },
+        error: async (err) => {
+          const alert = await this.alertCtrl.create({
+            header: 'Error',
+            message: err.error?.error || 'Something went wrong',
+            buttons: ['OK']
+          });
+          await alert.present();
+        }
+      });
+    }
+  }
+  
+  
+
+  resetForm() {
+    this.product = {
+      title: '',
+      body_html: '',
+      price: '',
+      sku: ''
+    };
+    this.isEdit = false;
+    this.editIndex = null;
   }
 }

@@ -1,10 +1,10 @@
-<swiper-container #swiper init="false">
+<!-- <swiper-container #swiper init="false">
   <swiper-slide *ngFor="let slide of slides">
     <ng-container *ngIf="slide.data as data">
       <ion-card class="slider-card">
         <ion-img [src]="data.image" alt="Product Image"></ion-img>
 
-        <!-- BLACK SECTION (common for all) -->
+        
         <div class="black-section">
           <h3 class="product-title">{{ data.title }}</h3>
           <div class="price_container">
@@ -15,14 +15,14 @@
           <p>{{ data.rewardsNote }}</p>
         </div>
 
-        <!-- PRODUCT: Add to cart button inside black-section -->
+        
         <div *ngIf="slide.type === 'product'" class="button-wrapper">
           <ion-button class="shop-now" expand="full" fill="solid">
             Add to cart
           </ion-button>
         </div>
 
-        <!-- PROMO: Signup form outside black-section -->
+        
         <div *ngIf="slide.type === 'promo'" class="container-subscribe">
           <p class="heading-para">Tell Me When Available!</p>
           <ionic-newsletter-signup class="hydrated">
@@ -43,4 +43,40 @@
       </ion-card>
     </ng-container>
   </swiper-slide>
-</swiper-container>
+</swiper-container> -->
+
+
+<p *ngIf="!slides.length">Loading or no data available...</p>
+
+<div *ngIf="slides.length > 0" id="pagination2">
+  <swiper-container #swiper init="false" class="tv-slider">
+    <swiper-slide *ngFor="let slide of slides">
+      <div class="tv-card">
+        <div class="offer-badge" *ngIf="slide.data.discountNote">Offer</div>
+
+        <img [src]="slide.data.image" alt="TV image" class="tv-image" />
+
+        <div class="tv-info">
+          <h4 class="tv-title">{{ slide.data.title }}</h4>
+
+          <div class="tv-pricing">
+            <span class="compare-price" *ngIf="slide.data.comparePrice">AED {{ slide.data.comparePrice }}</span>
+            <span class="sale-price">AED {{ slide.data.salePrice }}</span>
+          </div>
+
+          <div class="rewards" *ngIf="slide.data.rewardsNote">
+            {{ slide.data.rewardsNote }}
+          </div>
+
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+

@@ -216,16 +216,50 @@
 
     <app-footer></app-footer>
 
+
+     <!-- Add / Update toggle button -->
+     <ion-button expand="block" (click)="toggleForm()">
+      {{ showForm ? (isEdit ? 'Cancel Edit' : 'Hide Form') : (isEdit ? 'Edit Product' : 'Add Product') }}
+    </ion-button>
+
+    <!-- Product Form -->
+    <div *ngIf="showForm">
+      <ion-item>
+        <ion-label position="floating">Title</ion-label>
+        <ion-input [(ngModel)]="product.title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Description (HTML)</ion-label>
+        <ion-input [(ngModel)]="product.body_html"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Price</ion-label>
+        <ion-input type="number" [(ngModel)]="product.price"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">SKU</ion-label>
+        <ion-input [(ngModel)]="product.sku"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="success" class="ion-margin-top" (click)="submitProduct()">
+        {{ isEdit ? 'Update' : 'Submit' }}
+      </ion-button>
+    </div>
+
+    <!-- Product List -->
     <ion-button expand="full" (click)="loadProducts()">Load Products</ion-button>
 
-<!-- Show products when available -->
-<ion-list *ngIf="products.length > 0">
-  <ion-item *ngFor="let product of products">
-    <ion-label>
-      <h2>{{ product.title }}</h2>
-    </ion-label>
-  </ion-item>
-</ion-list>
+    <ion-list *ngIf="products.length > 0">
+      <ion-item *ngFor="let product of products; let i = index">
+        <ion-label>
+          <h2>{{ product.title }}</h2>
+        </ion-label>
+        <ion-button slot="end" color="warning" (click)="editProduct(product, i)">Update</ion-button>
+      </ion-item>
+    </ion-list>
    
   </ion-content>
 </div>
