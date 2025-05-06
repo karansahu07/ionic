@@ -59,9 +59,19 @@
         <div class="tv-info">
           <h4 class="tv-title">{{ slide.data.title }}</h4>
 
-          <div class="tv-pricing">
+          <!-- <div class="tv-pricing">
             <span class="compare-price" *ngIf="slide.data.comparePrice">AED {{ slide.data.comparePrice }}</span>
             <span class="sale-price">AED {{ slide.data.salePrice }}</span>
+          </div> -->
+
+          <div class="tv-pricing">
+            <div class="price_custom">
+              <span class="compare-price" *ngIf="slide.data.comparePrice">AED {{ slide.data.comparePrice }}</span>
+            <span class="sale-price">AED {{ slide.data.salePrice }}</span>
+            </div>
+            <span class="money-price" *ngIf="slide.data.moneyPrice">
+              Earn <span class="highlight-price">{{ slide.data.moneyPrice }}</span> Rewards Points
+            </span>
           </div>
 
           <div class="rewards" *ngIf="slide.data.rewardsNote">
@@ -74,9 +84,9 @@
     </swiper-slide>
   </swiper-container>
 
-  <div class="swiper-button-prev"></div>
+  <!-- <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
-  <div class="swiper-pagination"></div>
+  <div class="swiper-pagination"></div> -->
 </div>
 
 
