@@ -494,35 +494,35 @@ export class SliderTvComponent {
     });
   }
 
-  // initializeSwiper() {
-  //   const wrapper = document.getElementById('pagination2');
+  initializeSwiper() {
+    const wrapper = document.getElementById('pagination2');
 
-  //   const swiperParams = {
-  //     slidesPerView: 1.1,
-  //     centeredSlides: true,
-  //     loop: false,
-  //     pagination: {
-  //       clickable: true,
-  //       el: wrapper?.querySelector('.swiper-pagination'),
-  //       type: 'fraction'
-  //     },
-  //     navigation: {
-  //       nextEl: wrapper?.querySelector('.swiper-button-next'),
-  //       prevEl: wrapper?.querySelector('.swiper-button-prev')
-  //     }
-  //   };
+    const swiperParams = {
+      slidesPerView: 1.1,
+      centeredSlides: true,
+      loop: false,
+      pagination: {
+        clickable: true,
+        el: wrapper?.querySelector('.swiper-pagination'),
+        type: 'fraction'
+      },
+      navigation: {
+        nextEl: wrapper?.querySelector('.swiper-button-next'),
+        prevEl: wrapper?.querySelector('.swiper-button-prev')
+      }
+    };
 
-  //   Object.assign(this.swiperRef.nativeElement, swiperParams);
-  //   this.swiperRef.nativeElement.initialize();
+    Object.assign(this.swiperRef.nativeElement, swiperParams);
+    this.swiperRef.nativeElement.initialize();
 
-  //   const swiper = this.swiperRef.nativeElement.swiper;
+    const swiper = this.swiperRef.nativeElement.swiper;
 
-  //   this.updateNavigationButtons(swiper, wrapper);
+    this.updateNavigationButtons(swiper, wrapper);
 
-  //   swiper.on('slideChange', () => {
-  //     this.updateNavigationButtons(swiper, wrapper);
-  //   });
-  // }
+    swiper.on('slideChange', () => {
+      this.updateNavigationButtons(swiper, wrapper);
+    });
+  }
 
   // private updateNavigationButtons(swiper: any, wrapper: HTMLElement | null) {
   //   const prevButton = wrapper?.querySelector('.swiper-button-prev');
@@ -536,37 +536,37 @@ export class SliderTvComponent {
   //     nextButton.classList.toggle('swiper-button-disabled', swiper.isEnd);
   //   }
   // }
-  initializeSwiper() {
-    const wrapper = document.getElementById('pagination2');
+  // initializeSwiper() {
+  //   const wrapper = document.getElementById('pagination2');
   
-    if (!wrapper) return;
+  //   if (!wrapper) return;
   
-    const swiperParams = {
-      slidesPerView: 1.1,
-      centeredSlides: true,
-      loop: false,
-      pagination: {
-        clickable: true,
-        el: wrapper.querySelector('.swiper-pagination'),
-        type: 'fraction'
-      },
-      navigation: {
-        nextEl: wrapper.querySelector('.swiper-button-next'),
-        prevEl: wrapper.querySelector('.swiper-button-prev')
-      }
-    };
+  //   const swiperParams = {
+  //     slidesPerView: 1.1,
+  //     centeredSlides: true,
+  //     loop: false,
+  //     pagination: {
+  //       clickable: true,
+  //       el: wrapper.querySelector('.swiper-pagination'),
+  //       type: 'fraction'
+  //     },
+  //     navigation: {
+  //       nextEl: wrapper.querySelector('.swiper-button-next'),
+  //       prevEl: wrapper.querySelector('.swiper-button-prev')
+  //     }
+  //   };
   
-    Object.assign(this.swiperRef.nativeElement, swiperParams);
-    this.swiperRef.nativeElement.initialize();
+  //   Object.assign(this.swiperRef.nativeElement, swiperParams);
+  //   this.swiperRef.nativeElement.initialize();
   
-    const swiper = this.swiperRef.nativeElement.swiper;
+  //   const swiper = this.swiperRef.nativeElement.swiper;
   
-    this.updateNavigationButtons(swiper, wrapper);
+  //   this.updateNavigationButtons(swiper, wrapper);
   
-    swiper.on('slideChange', () => {
-      this.updateNavigationButtons(swiper, wrapper);
-    });
-  }
+  //   swiper.on('slideChange', () => {
+  //     this.updateNavigationButtons(swiper, wrapper);
+  //   });
+  // }
   
   private updateNavigationButtons(swiper: any, wrapper: HTMLElement | null) {
     const prevButton = wrapper?.querySelector('.swiper-button-prev');
