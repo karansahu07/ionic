@@ -1,4 +1,4 @@
-<swiper-container #swiper class="my-swiper" init="false">
+<!-- <swiper-container #swiper class="my-swiper" init="false">
   <swiper-slide *ngFor="let product of headphones">
     <ion-card class="slider-card">
       <ion-img
@@ -16,7 +16,7 @@
 
         <p>Earn <span class="reward">{{ product.rewardsPoints }}</span> Reward Points</p>
 
-        <!-- Tabby -->
+        
         <div *ngIf="product.showTabby" class="tabby-payment">
           Split in 4 payments with
           <span class="tabby-badge">
@@ -28,7 +28,7 @@
           </span>
         </div>
 
-        <!-- Color selection -->
+        
         <div *ngIf="product.hasOptions" class="color-selection">
           <p>Color</p>
           <div class="color-images">
@@ -51,4 +51,48 @@
       </div>
     </ion-card>
   </swiper-slide>
-</swiper-container>
+</swiper-container> -->
+
+
+<p *ngIf="!slides.length">Loading or no data available...</p>
+
+<div *ngIf="slides.length > 0" id="pagination2">
+  <swiper-container #swiper init="false" class="tv-slider">
+    <swiper-slide *ngFor="let slide of slides">
+      <div class="tv-card">
+        <div class="offer-badge" *ngIf="slide.data.discountNote">Offer</div>
+
+        <img [src]="slide.data.image" alt="TV image" class="tv-image" />
+
+        <div class="tv-info">
+          <h4 class="tv-title">{{ slide.data.title }}</h4>
+
+          <!-- <div class="tv-pricing">
+            <span class="compare-price" *ngIf="slide.data.comparePrice">AED {{ slide.data.comparePrice }}</span>
+            <span class="sale-price">AED {{ slide.data.salePrice }}</span>
+          </div> -->
+
+          <div class="tv-pricing">
+            <div class="price_custom">
+              <span class="compare-price" *ngIf="slide.data.comparePrice">AED {{ slide.data.comparePrice }}</span>
+            <span class="sale-price">AED {{ slide.data.salePrice }}</span>
+            </div>
+            <span class="money-price" *ngIf="slide.data.moneyPrice">
+              Earn <span class="highlight-price">{{ slide.data.moneyPrice }}</span> Rewards Points
+            </span>
+          </div>
+
+          <div class="rewards" *ngIf="slide.data.rewardsNote">
+            {{ slide.data.rewardsNote }}
+          </div>
+
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+
+  <!-- <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-pagination"></div> -->
+</div>

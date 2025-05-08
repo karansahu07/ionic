@@ -1,151 +1,252 @@
-swiper-container {
-    width: 100%;
-    height: 70%;
-    --swiper-pagination-bullet-inactive-color: #888;
-    --swiper-pagination-color: #fff;
-  }
+// swiper-container {
+//     width: 100%;
+//     height: 70%;
+//     --swiper-pagination-bullet-inactive-color: #888;
+//     --swiper-pagination-color: #fff;
+//   }
   
-  swiper-slide {
-    display: flex;
-    justify-content: center;
-  }
+//   swiper-slide {
+//     display: flex;
+//     justify-content: center;
+//   }
   
-  .slider-card {
-    width: 98%;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #2021251a;
-    box-shadow: none;
-    border-radius: 0;
-    overflow: hidden;
-  }
+//   .slider-card {
+//     width: 98%;
+//     margin: 0;
+//     padding: 0;
+//     border: 1px solid #2021251a;
+//     box-shadow: none;
+//     border-radius: 0;
+//     overflow: hidden;
+//   }
   
   
-  .blue-section h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0 0 10px 0;
-    line-height: 1.2;
-  }
+//   .blue-section h2 {
+//     font-size: 24px;
+//     font-weight: bold;
+//     margin: 0 0 10px 0;
+//     line-height: 1.2;
+//   }
   
-  .yellow-text {
-    color: #FFD700;
-    font-size: 18px;
-    margin: 0;
-  }
+//   .yellow-text {
+//     color: #FFD700;
+//     font-size: 18px;
+//     margin: 0;
+//   }
   
-  .products-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 200px; // Adjust based on your needs
-    margin: 20px 0;
-  }
+//   .products-section {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     position: relative;
+//     height: 200px; // Adjust based on your needs
+//     margin: 20px 0;
+//   }
   
-  .badge-overlay {
+//   .badge-overlay {
+//     position: absolute;
+//     z-index: 2;
+//     left: 30%;
+//     top: 10px;
+//   }
+  
+//   .warranty-badge {
+//     width: 100px; // Adjust based on your needs
+//   }
+  
+//   .products-image {
+//     max-width: 100%;
+//     max-height: 180px;
+//   }
+
+//   ion-card ion-img {
+//     width: 100%;
+//     height: auto;
+//     object-fit: cover;
+//     display: block;
+//   }
+  
+  
+//   // Black section at bottom of all cards
+//   .black-section {
+//     background-color: #fff;
+//     color: black;
+//     padding: 15px;
+//     margin-top: -3px;
+//   }
+  
+//   .black-section h3 {
+//     margin: 0;
+//     font-size: 18px;
+//     font-weight: bold;
+//   }
+  
+//   .black-section p {
+//     margin: 5px 0;
+//     font-size: 14px;
+//   }
+  
+//   .know-more {
+//     display: flex;
+//     align-items: center;
+//     font-weight: bold;
+//     margin-top: 10px;
+//   }
+  
+//   .know-more ion-icon {
+//     margin-left: 5px;
+//   }
+  
+//   // For other slides that use a regular image
+//   ion-card img {
+//     width: 100%;
+//     object-fit: cover;
+//   }
+
+//   ion-button.shop-now {
+//     --ion-color-base: #dc3a1a;
+//     --ion-color-contrast: #ffffff;
+//     --background: #dc3a1a;
+//     --color: #ffffff;
+//     --border-radius: 6px;
+//   }
+//   ion-img.tabby-img.md.hydrated {
+//     width: 40px;
+//     padding-left: 5px;
+//   }
+//   .tabby-payment{
+//     display:flex;
+//   }
+//   .price_container {
+//     margin: 10px 0px;
+//   }
+//   span.compare_price {
+//   font-size: 12px;
+//   color: gray;
+//   text-decoration: line-through;
+//   }
+//   span.sale_price {
+//   font-size: 15px;
+//   padding-left: 10px;
+//   }
+
+//   .color-images {
+//     display: flex;
+//     gap: 8px;
+//     margin-top: 5px;
+//   }
+  
+//   ion-card .color-thumbnail {
+//     width: 50px;
+//     // height: 30px;
+//     border-radius: 50%;
+//     cursor: pointer;
+//     object-fit: cover;
+//     border: 1px solid black;
+//     transition: border-color 0.3s ease;
+//   }
+  
+//   .color-thumbnail.active {
+//     border-color: #ff3c00;
+//   }
+
+
+.tv-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #ddd;
+  // border-radius: 6px;
+  padding: 0;
+  text-align: center;
+  max-width: 380px;
+  // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  margin: auto;
+
+  .offer-badge {
     position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #e53935;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 7px;
+    border-radius: 3px;
     z-index: 2;
-    left: 30%;
-    top: 10px;
-  }
-  
-  .warranty-badge {
-    width: 100px; // Adjust based on your needs
-  }
-  
-  .products-image {
-    max-width: 100%;
-    max-height: 180px;
+    // text-transform: uppercase;
   }
 
-  ion-card ion-img {
+  .tv-image {
     width: 100%;
     height: auto;
-    object-fit: cover;
     display: block;
   }
-  
-  
-  // Black section at bottom of all cards
-  .black-section {
-    background-color: #fff;
-    color: black;
-    padding: 15px;
-    margin-top: -3px;
+
+  .tv-info {
+    padding: 16px 20px;
+    text-align: left;
   }
-  
-  .black-section h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
+
+  .tv-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
   }
-  
-  .black-section p {
-    margin: 5px 0;
-    font-size: 14px;
-  }
-  
-  .know-more {
+
+  .tv-pricing {
+    margin-bottom: 10px;
     display: flex;
-    align-items: center;
-    font-weight: bold;
-    margin-top: 10px;
+    flex-direction: column;
+    gap: 4px;
+
+    .compare-price {
+      text-decoration: line-through;
+      color: #57585B;
+      font-size: 14px;
+    }
+
+    .sale-price {
+      font-size: 16px;
+      // font-weight: bold;
+      color: #000;
+    }
+
+    .money-price {
+      font-size: 13px;
+      color: #000000;
+    }
   }
-  
-  .know-more ion-icon {
-    margin-left: 5px;
+
+  .rewards {
+    font-size: 13px;
+    color: #2e7d32;
+    margin-bottom: 16px;
   }
-  
-  // For other slides that use a regular image
-  ion-card img {
+
+  .add-to-cart {
+    display: block;
     width: 100%;
-    object-fit: cover;
-  }
-
-  ion-button.shop-now {
-    --ion-color-base: #dc3a1a;
-    --ion-color-contrast: #ffffff;
-    --background: #dc3a1a;
-    --color: #ffffff;
-    --border-radius: 6px;
-  }
-  ion-img.tabby-img.md.hydrated {
-    width: 40px;
-    padding-left: 5px;
-  }
-  .tabby-payment{
-    display:flex;
-  }
-  .price_container {
-    margin: 10px 0px;
-  }
-  span.compare_price {
-  font-size: 12px;
-  color: gray;
-  text-decoration: line-through;
-  }
-  span.sale_price {
-  font-size: 15px;
-  padding-left: 10px;
-  }
-
-  .color-images {
-    display: flex;
-    gap: 8px;
-    margin-top: 5px;
-  }
-  
-  ion-card .color-thumbnail {
-    width: 50px;
-    // height: 30px;
-    border-radius: 50%;
+    background-color: #dc3a1a;
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    border-radius: 0;
+    font-weight: bold;
+    font-size: 14px;
     cursor: pointer;
-    object-fit: cover;
-    border: 1px solid black;
-    transition: border-color 0.3s ease;
+
+    &:hover {
+      background-color: #b71c1c;
+    }
   }
-  
-  .color-thumbnail.active {
-    border-color: #ff3c00;
-  }
+}
+.price_custom{
+  display: flex;
+  gap : 8px;
+}
+.highlight-price {
+  color: #af1ed2;
+  // font-weight: bold;
+}
