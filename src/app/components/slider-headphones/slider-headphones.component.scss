@@ -151,7 +151,7 @@
 //   }
 
 
-.tv-card {
+.headphones-card {
   position: relative;
   background: #fff;
   border: 1px solid #ddd;
@@ -177,25 +177,25 @@
     // text-transform: uppercase;
   }
 
-  .tv-image {
+  .headphones-image {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  .tv-info {
+  .headphones-info {
     padding: 16px 20px;
     text-align: left;
   }
 
-  .tv-title {
+  .headphones-title {
     font-size: 15px;
     font-weight: 600;
     margin-bottom: 12px;
     color: #333;
   }
 
-  .tv-pricing {
+  .headphones-pricing {
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;

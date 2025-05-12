@@ -1,59 +1,38 @@
-<swiper-container #swiper class="my-swiper" init="false">
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/camera1.webp" alt="Rewards"></ion-img>
-      <div class="black-section">
-        <h3>1 Year Free Extended Warranty</h3>
-        <p>Get Extended Warranty </p>
-        <p>On Select Products </p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
+<p *ngIf="!slides || !slides.length" class="no-data-message">Loading category products...</p>
+
+<!-- Slider content -->
+<div *ngIf="slides && slides.length > 0" class="cameras-slider-container">
+  <swiper-container #swiper init="false" class="cameras-slider">
+    <swiper-slide *ngFor="let slide of slides">
+      <div class="cameras-card">
+        <div class="offer-badge" *ngIf="slide.data && slide.data.discountNote">Offer</div>
+
+        <img [src]="slide.data?.image" alt="cameras product image" class="cameras-image" />
+
+        <div class="cameras-info">
+          <h4 class="cameras-title">{{ slide.data?.title }}</h4>
+
+          <div class="cameras-pricing">
+            <div class="price_custom">
+              <span class="compare-price" *ngIf="slide.data?.comparePrice">
+                AED {{ slide.data?.comparePrice }}
+              </span>
+              <span class="sale-price" *ngIf="slide.data?.salePrice">
+                AED {{ slide.data?.salePrice }}
+              </span>
+            </div>
+            <span class="money-price" *ngIf="slide.data?.moneyPrice">
+              Earn <span class="highlight-price">{{ slide.data?.moneyPrice }}</span> Rewards Points
+            </span>
+          </div>
+
+          <div class="rewards" *ngIf="slide.data?.rewardsNote">
+            {{ slide.data?.rewardsNote }}
+          </div>
+
+          <button class="add-to-cart">Add to cart</button>
+        </div>
       </div>
-    </ion-card>
-  </swiper-slide>
-
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/camera2.webp" alt="Rewards"></ion-img>
-      <div class="black-section">
-        <h3>Sony Rewards</h3>
-        <p>Earn Sony Rewards on</p>
-        <p>Every Purchase</p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
-
-      </div>
-
-
-    </ion-card>
-  </swiper-slide>
-
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/camera3.webp" alt="Lens Cleaning"></ion-img>
-      <div class="black-section">
-        <h3>Camera Sensor Cleaning</h3>
-        <p>Book a sensor cleaning</p>
-        <p>with us today.</p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
-      </div>
-    </ion-card>
-  </swiper-slide>
-
-  <swiper-slide>
-    <ion-card class="slider-card">
-      <ion-img src="assets/public/camera4.webp" alt="Lens Cleaning"></ion-img>
-      <div class="black-section">
-        <h3>Camera Sensor Cleaning</h3>
-        <p>Book a sensor cleaning</p>
-        <p>with us today.</p>
-        <ion-button class="shop-now" expand="full" fill="solid">Add to cart</ion-button>
-      </div>
-    </ion-card>
-  </swiper-slide>
-
-</swiper-container>
-
-<!-- <div class="navigation-container1">
-  <div class="button-prev"></div>
-  <div class="swiper-pagination"></div>
-  <div class="button-next"></div>
-</div> -->
+    </swiper-slide>
+  </swiper-container>
+</div>

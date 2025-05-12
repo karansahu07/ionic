@@ -246,40 +246,81 @@ export class HomePage implements OnInit {
   }
 
   loadAllCollections() {
-    this.apiService.getAllCollections().subscribe({
-      next: (collections) => {
-        const collectionNames = ['tv', 'headphones', 'soundbar', 'speakers', 'cameras', 'more from sony'];
+  this.isLoading = true;
+  
+  this.apiService.getAllCollections().subscribe({
+    next: (collections) => {
+      console.log('Received collections:', collections);
+      const collectionNames = ['television', 'headphones', 'soundbar', 'speakers', 'cameras'];
 
-        collectionNames.forEach(name => {
-          const matched = collections.find(
-            (            c: { title: string; handle: string; }) =>
-              c.title?.toLowerCase().includes(name) ||
-              c.handle?.toLowerCase().includes(name)
-          );
+      collectionNames.forEach(name => {
+        console.log(`Processing ${name} collection`);
+        
+        const matched = collections.find(
+          (c: { title: string; handle: string; }) =>
+            c.title?.toLowerCase().includes(name) ||
+            c.handle?.toLowerCase().includes(name)
+        );
 
-          if (matched && matched.products?.length) {
-            const activeProducts = matched.products
-              .filter((p: any) => p.status?.toLowerCase() === 'active')
-              .slice(0, 4);
+        console.log(`Matched ${name} collection:`, matched);
 
-            this.collectionsMap[name] = activeProducts;
-          } else {
-            this.collectionsMap[name] = [];
-          }
-        });
+        if (matched && matched.products?.length) {
+          const activeProducts = matched.products
+            .filter((p: any) => p.status?.toLowerCase() === 'active')
+            .slice(0, 4);
 
-        this.isLoading = false;
-      },
-      error: err => {
-        console.error('Error fetching collections', err);
-        this.isLoading = false;
-      }
-    });
-  }
+          console.log(`Found ${activeProducts.length} active products for ${name}`);
+
+          this.collectionsMap[name] = activeProducts.map((product: any) => {
+            console.log(`Processing product:`, product);
+            
+            // Add safety checks for all price calculations
+            const rawSalePrice = product.salePrice ? Number(product.salePrice) / 100 : 0;
+            const formattedSalePrice = rawSalePrice % 1 === 0 ? 
+              rawSalePrice.toString() : rawSalePrice.toFixed(2);
+
+            const rawComparePrice = product.comparePrice ? Number(product.comparePrice) : 0;
+            const formattedComparePrice = rawComparePrice % 1 === 0 ? 
+              rawComparePrice.toString() : rawComparePrice.toFixed(2);
+
+            const moneyPriceCalc = rawSalePrice > 0 ? (rawSalePrice / 1.05) * 0.05 : 0;
+            const formattedMoneyPrice = Math.floor(moneyPriceCalc).toString();
+
+            const productData = {
+              type: 'product',
+              data: {
+                image: product.image || 'assets/placeholder-product.jpg',
+                title: product.title || 'Product Name',
+                comparePrice: product.comparePrice ? formattedComparePrice : '',
+                salePrice: product.salePrice ? formattedSalePrice : '0',
+                moneyPrice: product.salePrice ? formattedMoneyPrice : '',
+                discountNote: rawComparePrice > rawSalePrice ? 'Get additional 10% discount at checkout' : '',
+                rewardsNote: product.rewardsNote || ''
+              }
+            };
+            
+            console.log(`Processed product data:`, productData);
+            return productData;
+          });
+        } else {
+          console.log(`No products found for ${name} collection`);
+          this.collectionsMap[name] = [];
+        }
+        
+        console.log(`Final ${name} collection products:`, this.collectionsMap[name]);
+      });
+
+      this.isLoading = false;
+    },
+    error: err => {
+      console.error('Error fetching collections', err);
+      this.isLoading = false;
+    }
+  });
+}
 
   toggleForm() {
     this.showForm = !this.showForm;
-
     if (!this.showForm) {
       this.resetForm();
     }
@@ -372,3 +413,4 @@ export class HomePage implements OnInit {
     this.editIndex = null;
   }
 }
+

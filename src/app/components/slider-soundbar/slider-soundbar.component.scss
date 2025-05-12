@@ -215,7 +215,7 @@
 
 
 
-.tv-card {
+.soundbar-card {
   position: relative;
   background: #fff;
   border: 1px solid #ddd;
@@ -241,25 +241,25 @@
     // text-transform: uppercase;
   }
 
-  .tv-image {
+  .soundbar-image {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  .tv-info {
+  .soundbar-info {
     padding: 16px 20px;
     text-align: left;
   }
 
-  .tv-title {
+  .soundbar-title {
     font-size: 15px;
     font-weight: 600;
     margin-bottom: 12px;
     color: #333;
   }
 
-  .tv-pricing {
+  .soundbar-pricing {
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;

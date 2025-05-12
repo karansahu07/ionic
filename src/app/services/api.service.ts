@@ -50,7 +50,7 @@ export class ApiService {
 
   // ✅ NEW: Fetch all collections with their products
   getAllCollections(): Observable<any> {
-    return this.http.get(`${this.backendUrl}/collections-with-products`);
+    return this.http.get(`${this.backendUrl}/all-collections`);
   }
 }
 

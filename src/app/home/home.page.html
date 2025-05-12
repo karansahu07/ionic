@@ -114,90 +114,175 @@
     </div>
 
     <div id="slider2-wrapper" class="slider2-wrapper">
-      <div class="container1">
-        <h4 class="container-heading">BRAVIA Televisions</h4>
-      </div>
-      <app-slider-tv [slides]="collectionsMap['tv']"></app-slider-tv>
-      <div id="pagination2" class="navigation-container">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-      <div class="view-all">
-        <h6>View all</h6>
-      </div>
-    </div>
+  <div class="container1">
+    <h4 class="container-heading">BRAVIA Televisions</h4>
+  </div>
+  
+  <!-- Debug information for development -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <ion-spinner></ion-spinner> Loading products...
+  </div>
+  
+  <div *ngIf="!isLoading && (!collectionsMap['television'] || collectionsMap['television'].length === 0)" class="no-data">
+    No television products available
+  </div>
+  
+  <!-- Pass the television products to the slider component -->
+  <app-slider-tv 
+    *ngIf="!isLoading && collectionsMap['television'] && collectionsMap['television'].length > 0"
+    [slides]="collectionsMap['television']">
+  </app-slider-tv>
+  
+  <!-- Navigation controls - used by the slider component -->
+  <div class="navigation-container">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  
+  <div class="view-all">
+    <h6>View all</h6>
+  </div>
+</div>
 
 
 
     
-    <div id="slider3-wrapper">
-      <div class="container1">
-        <h4 class="container-heading">Soundbars</h4>
-      </div>
-      <app-slider-soundbar [slides]="collectionsMap['headphones']"></app-slider-soundbar>
-      <div id="pagination3" class="navigation-container">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-      <div class="view-all">
-        <h6>View all</h6>
-      </div>
-    </div>
+   <div id="slider3-wrapper" class="slider3-wrapper">
+  <div class="container1">
+    <h4 class="container-heading">Soundbars</h4>
+  </div>
+  
+  <!-- Debug information for development -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <ion-spinner></ion-spinner> Loading products...
+  </div>
+  
+  <div *ngIf="!isLoading && (!collectionsMap['soundbar'] || collectionsMap['soundbar'].length === 0)" class="no-data">
+    No headphone products available
+  </div>
+  
+  <!-- Pass the headphones products to the slider component -->
+  <app-slider-soundbar 
+    *ngIf="!isLoading && collectionsMap['soundbar'] && collectionsMap['soundbar'].length > 0"
+    [slides]="collectionsMap['soundbar']">
+  </app-slider-soundbar>
+  
+  <!-- Navigation controls - used by the slider component -->
+  <div class="navigation-container">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  
+  <div class="view-all">
+    <h6>View all</h6>
+  </div>
+</div>
 
     
 
     
-    <div id="slider4-wrapper">
-      <div class="container1">
-        <h4>Headphones</h4>
-      </div>
-      <app-slider-headphones></app-slider-headphones>
-      <div id="pagination4" class="navigation-container">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-      <div class="view-all">
-        <h6>View all</h6>
-      </div>
-    </div>
+    <div id="slider4-wrapper" class="slider4-wrapper">
+  <div class="container1">
+    <h4 class="container-heading">Headphones</h4>
+  </div>
+  
+  <!-- Debug information for development -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <ion-spinner></ion-spinner> Loading products...
+  </div>
+  
+  <div *ngIf="!isLoading && (!collectionsMap['headphones'] || collectionsMap['headphones'].length === 0)" class="no-data">
+    No category products available
+  </div>
+  
+  <!-- Pass the category products to the slider component -->
+  <app-slider-headphones 
+    *ngIf="!isLoading && collectionsMap['headphones'] && collectionsMap['headphones'].length > 0"
+    [slides]="collectionsMap['headphones']">
+  </app-slider-headphones>
+  
+  <!-- Navigation controls - used by the slider component -->
+  <div class="navigation-container">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  
+  <div class="view-all">
+    <h6>View all</h6>
+  </div>
+</div>
 
     
 
 
-    <div id="slider5-wrapper">
-      <div class="container1">
-        <h4>Speakers</h4>
-      </div>
-      <app-slider-speakers></app-slider-speakers>
-      <div id="pagination5" class="navigation-container">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-      <div class="view-all">
-        <h6>View all</h6>
-      </div>
-    </div>
+    <div id="slider5-wrapper" class="slider5-wrapper">
+  <div class="container1">
+    <h4 class="container-heading">Speakers</h4>
+  </div>
+  
+  <!-- Debug information for development -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <ion-spinner></ion-spinner> Loading products...
+  </div>
+  
+  <div *ngIf="!isLoading && (!collectionsMap['speakers'] || collectionsMap['speakers'].length === 0)" class="no-data">
+    No category products available
+  </div>
+  
+  <!-- Pass the category products to the slider component -->
+  <app-slider-speakers 
+    *ngIf="!isLoading && collectionsMap['speakers'] && collectionsMap['speakers'].length > 0"
+    [slides]="collectionsMap['speakers']">
+  </app-slider-speakers>
+  
+  <!-- Navigation controls - used by the slider component -->
+  <div class="navigation-container">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  
+  <div class="view-all">
+    <h6>View all</h6>
+  </div>
+</div>
 
     
 
-    <div id="slider6-wrapper">
-      <div class="container1">
-        <h4>Cameras</h4>
-      </div>
-      <app-slider-cameras></app-slider-cameras>
-      <div id="pagination6" class="navigation-container">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-      <div class="view-all">
-        <h6>View all</h6>
-      </div>
-    </div>
+    <div id="slider6-wrapper" class="slider6-wrapper">
+  <div class="container1">
+    <h4 class="container-heading">Cameras</h4>
+  </div>
+  
+  <!-- Debug information for development -->
+  <div *ngIf="isLoading" class="loading-indicator">
+    <ion-spinner></ion-spinner> Loading products...
+  </div>
+  
+  <div *ngIf="!isLoading && (!collectionsMap['cameras'] || collectionsMap['cameras'].length === 0)" class="no-data">
+    No category products available
+  </div>
+  
+  <!-- Pass the category products to the slider component -->
+  <app-slider-cameras 
+    *ngIf="!isLoading && collectionsMap['cameras'] && collectionsMap['cameras'].length > 0"
+    [slides]="collectionsMap['cameras']">
+  </app-slider-cameras> 
+  
+  <!-- Navigation controls - used by the slider component -->
+  <div class="navigation-container">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  
+  <div class="view-all">
+    <h6>View all</h6>
+  </div>
+</div>
 
     
 

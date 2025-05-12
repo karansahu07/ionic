@@ -115,123 +115,106 @@ import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   ElementRef,
+  ViewChild,
   Input,
-  ViewChild
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+  AfterViewInit
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { register } from 'swiper/element/bundle';
 
 register();
 
 @Component({
-  selector: 'app-slider-soundbar',
+  selector: 'app-slider-soundbar',  // Replace with the actual selector
   standalone: true,
-  imports: [CommonModule, IonicModule, HttpClientModule],
+  imports: [CommonModule, IonicModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  templateUrl: './slider-soundbar.component.html',
-  styleUrls: ['./slider-soundbar.component.scss']
+  templateUrl: './slider-soundbar.component.html',  // Replace with actual template path
+  styleUrls: ['./slider-soundbar.component.scss']   // Replace with actual styles path
 })
-export class SliderSoundbarComponent {
+export class SliderSoundbarComponent implements OnInit, OnChanges, AfterViewInit {  // Replace class name
   @Input() slides: any[] = [];
-  
   @ViewChild('swiper') swiperRef!: ElementRef;
-  // slides: any[] = [];
-
-  constructor(private http: HttpClient) {}
+  swiperInitialized = false;
 
   ngOnInit() {
-    console.log('SliderSoundbarComponent initialized');
+    console.log('SliderSoundbarComponent initialized with slides:', this.slides);
+  }
+  
+  ngAfterViewInit() {
+    if (this.slides && this.slides.length > 0 && !this.swiperInitialized) {
+      setTimeout(() => this.initializeSwiper(), 100);
+    }
+  }
 
-    const apiBase = (window as any).env?.API_BASE_URL || 'https://shopify-test-swart.vercel.app';
-
-    this.http.get<any[]>(`${apiBase}/all-collections`).subscribe({
-      next: collections => {
-        console.log('Fetched collections:', collections);
-
-        const soundbarCollection = collections.find(
-          c =>
-            c.title?.toLowerCase().includes('soundbar') ||
-            c.handle?.toLowerCase().includes('soundbar')
-        );
-
-        console.log('Soundbar collection:', soundbarCollection);
-
-        if (soundbarCollection && soundbarCollection.products?.length > 0) {
-          const activeProducts = soundbarCollection.products
-            .filter((product: any) => product.status?.toLowerCase() === 'active')
-            .slice(0, 4);
-
-          this.slides = activeProducts.map((product: any) => {
-            const rawSalePrice = Number(product.salePrice) / 100;
-            const formattedSalePrice =
-              rawSalePrice % 1 === 0 ? rawSalePrice.toString() : rawSalePrice.toFixed(2);
-
-            const rawComparePrice = Number(product.comparePrice);
-            const formattedComparePrice =
-              rawComparePrice % 1 === 0 ? rawComparePrice.toString() : rawComparePrice.toFixed(2);
-
-            const moneyPriceCalc = rawSalePrice / 1.05 * 0.05;
-            const formattedMoneyPrice = Math.floor(moneyPriceCalc).toString();
-
-            return {
-              type: 'product',
-              data: {
-                image: product.image,
-                title: product.title,
-                comparePrice: product.comparePrice ? formattedComparePrice : '',
-                salePrice: product.salePrice ? formattedSalePrice : '',
-                moneyPrice: product.salePrice ? formattedMoneyPrice : '',
-                discountNote: 'Get additional 10% discount at checkout',
-                rewardsNote: product.rewardsNote || ''
-              }
-            };
-          });
-
-          setTimeout(() => this.initializeSwiper(), 100);
-        } else {
-          console.warn('No "soundbar" collection found or it has no active products.');
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('SliderSoundbarComponent changes:', changes);
+    
+    if (changes['slides'] && !changes['slides'].firstChange && 
+        this.slides && this.slides.length > 0) {
+      
+      console.log('Slides updated, reinitializing swiper');
+      
+      setTimeout(() => {
+        if (this.swiperRef && this.swiperRef.nativeElement) {
+          if (this.swiperInitialized) {
+            this.swiperRef.nativeElement.swiper.update();
+          } else {
+            this.initializeSwiper();
+          }
         }
-      },
-      error: err => {
-        console.error('HTTP error:', err);
-      }
-    });
+      }, 100);
+    }
   }
 
   initializeSwiper() {
-    const wrapper = document.getElementById('pagination3');
-
+    if (!this.swiperRef || !this.swiperRef.nativeElement) {
+      console.warn('Swiper element reference not available');
+      return;
+    }
+    
+    console.log('Initializing swiper with slides:', this.slides);
+    
+    // Update this ID to match the wrapper ID in your HTML, e.g., .slider4-wrapper for speakers
+    const navigationContainer = this.swiperRef.nativeElement.closest('.slider3-wrapper') 
+                               .querySelector('.navigation-container');
+    
     const swiperParams = {
       slidesPerView: 1.1,
       centeredSlides: true,
       loop: false,
       pagination: {
         clickable: true,
-        el: wrapper?.querySelector('.swiper-pagination'),
+        el: navigationContainer?.querySelector('.swiper-pagination'),
         type: 'fraction'
       },
       navigation: {
-        nextEl: wrapper?.querySelector('.swiper-button-next'),
-        prevEl: wrapper?.querySelector('.swiper-button-prev')
+        nextEl: navigationContainer?.querySelector('.swiper-button-next'),
+        prevEl: navigationContainer?.querySelector('.swiper-button-prev')
       }
     };
 
     Object.assign(this.swiperRef.nativeElement, swiperParams);
     this.swiperRef.nativeElement.initialize();
+    this.swiperInitialized = true;
 
     const swiper = this.swiperRef.nativeElement.swiper;
-    this.updateNavigationButtons(swiper, wrapper);
+    this.updateNavigationButtons(swiper, navigationContainer);
 
     swiper.on('slideChange', () => {
-      this.updateNavigationButtons(swiper, wrapper);
+      this.updateNavigationButtons(swiper, navigationContainer);
     });
   }
 
   private updateNavigationButtons(swiper: any, wrapper: HTMLElement | null) {
-    const prevButton = wrapper?.querySelector('.swiper-button-prev');
-    const nextButton = wrapper?.querySelector('.swiper-button-next');
+    if (!wrapper) return;
+    
+    const prevButton = wrapper.querySelector('.swiper-button-prev');
+    const nextButton = wrapper.querySelector('.swiper-button-next');
 
     if (prevButton) {
       prevButton.classList.toggle('swiper-button-disabled', swiper.isBeginning);
