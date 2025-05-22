@@ -303,12 +303,12 @@
 
 
      <!-- Add / Update toggle button -->
-     <ion-button expand="block" (click)="toggleForm()">
+     <!-- <ion-button expand="block" (click)="toggleForm()">
       {{ showForm ? (isEdit ? 'Cancel Edit' : 'Hide Form') : (isEdit ? 'Edit Product' : 'Add Product') }}
-    </ion-button>
+    </ion-button> -->
 
     <!-- Product Form -->
-    <div *ngIf="showForm">
+    <!-- <div *ngIf="showForm">
       <ion-item>
         <ion-label position="floating">Title</ion-label>
         <ion-input [(ngModel)]="product.title"></ion-input>
@@ -332,19 +332,19 @@
       <ion-button expand="block" color="success" class="ion-margin-top" (click)="submitProduct()">
         {{ isEdit ? 'Update' : 'Submit' }}
       </ion-button>
-    </div>
+    </div> -->
 
     <!-- Product List -->
-    <ion-button expand="full" (click)="loadProducts()">Load Products</ion-button>
+    <!-- <ion-button expand="full" (click)="loadProducts()">Load Products</ion-button> -->
 
-    <ion-list *ngIf="products.length > 0">
+    <!-- <ion-list *ngIf="products.length > 0">
       <ion-item *ngFor="let product of products; let i = index">
         <ion-label>
           <h2>{{ product.title }}</h2>
         </ion-label>
         <ion-button slot="end" color="warning" (click)="editProduct(product, i)">Update</ion-button>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
    
   </ion-content>
 </div>

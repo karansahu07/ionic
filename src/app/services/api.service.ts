@@ -32,7 +32,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private backendUrl = 'https://shopify-test-swart.vercel.app'; // Replace with your actual backend URL
+  private backendUrl = 'http://localhost:4000/api'; // Replace with your actual backend URL
+  // private backendUrl = 'https://shopify-test-swart.vercel.app'; // Replace with your actual backend URL
 
   constructor(private http: HttpClient) {}
 
