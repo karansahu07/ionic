@@ -262,14 +262,14 @@
     <ion-spinner></ion-spinner> Loading products...
   </div>
   
-  <div *ngIf="!isLoading && (!collectionsMap['cameras'] || collectionsMap['cameras'].length === 0)" class="no-data">
+  <div *ngIf="!isLoading && (!collectionsMap['interchangeable-lens-camera'] || collectionsMap['interchangeable-lens-camera'].length === 0)" class="no-data">
     No category products available
   </div>
   
   <!-- Pass the category products to the slider component -->
   <app-slider-cameras 
-    *ngIf="!isLoading && collectionsMap['cameras'] && collectionsMap['cameras'].length > 0"
-    [slides]="collectionsMap['cameras']">
+    *ngIf="!isLoading && collectionsMap['interchangeable-lens-camera'] && collectionsMap['interchangeable-lens-camera'].length > 0"
+    [slides]="collectionsMap['interchangeable-lens-camera']">
   </app-slider-cameras> 
   
   <!-- Navigation controls - used by the slider component -->
